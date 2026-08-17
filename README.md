@@ -1,68 +1,95 @@
 # StudyMate AI
 
-StudyMate AI is an AI-powered study assistant built for the Frontend Internship Assignment.
-
-It allows users to enter a topic or paste study notes, sends the input to a real LLM, and converts the structured AI response into an interactive quiz.
-
-The application is not a chatbot. Instead, the AI generates structured quiz data which is parsed and rendered as interactive React components.
-
----
+StudyMate AI is an AI-powered study assistant built for the Frontend Internship Assignment. Users can enter a topic or paste study notes, and Gemini generates a structured interactive quiz.
 
 ## Features
 
-- Free-form text input for topics or study notes
-- AI-generated quizzes using Google Gemini
-- Five questions generated per quiz
-- Interactive multiple-choice questions
-- Answer selection and submission
-- Immediate correct/incorrect feedback
-- Explanations for answers
-- Automatic score calculation
-- Retry only incorrectly answered questions
-- Generate a new quiz
-- Loading state while the AI response is being generated
-- Error and retry states for failed requests
-- Timeout handling for slow requests
-- Protection against stale responses
-- Responsive interface for desktop and mobile
+* Free-form topic/notes input
+* AI-generated 5-question quizzes
+* Interactive multiple-choice questions
+* Instant feedback and explanations
+* Score calculation
+* Retry wrong answers
+* Loading, error, empty and retry states
+* 30-second timeout for slow requests
+* Protection against stale responses
+* Responsive UI for mobile and desktop
 
----
+## Tech Stack
 
-## How It Works
+* **Frontend:** React, Vite, JavaScript, CSS
+* **Backend:** Python, Flask, Flask-CORS
+* **AI:** Google Gemini API
+* **Deployment:** Render
 
-The application uses a separate React frontend and Flask backend.
+## Architecture
 
 ```text
-                    User
-                     |
-                     v
-              React Frontend
-                (Render)
-                     |
-                     | POST /api/generate
-                     v
-               Flask Backend
-                 (Render)
-                     |
-                     v
-                Gemini API
-                     |
-                     | Structured JSON
-                     v
-               Flask Backend
-                     |
-                     v
-              React Frontend
-                     |
-                     v
-             Interactive Quiz
+User
+  ↓
+React Frontend
+  ↓
+Flask Backend
+  ↓
+Google Gemini API
+  ↓
+Structured Quiz Data
+  ↓
+Interactive React Quiz
+```
 
----
+The Gemini API key is stored securely as a backend environment variable and is never exposed in the frontend.
+
+## Setup
+
+### Backend
+
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+
+Set the environment variable:
+
+```text
+GEMINI_API_KEY=your_api_key_here
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+## Usage
+
+1. Enter a topic or paste study notes.
+2. Click **Generate Quiz**.
+3. Answer the questions and submit your answers.
+4. View explanations and your final score.
+5. Retry incorrectly answered questions.
+
+## Error Handling
+
+The application handles empty input, failed API requests, slow requests, and stale responses without crashing. Users receive appropriate loading/error states and can retry failed requests.
+
+## AI Usage
+
+ChatGPT was used during development for implementation guidance, debugging, code review, and deployment troubleshooting. Suggestions were reviewed, adapted, and tested during development.
+
+## Known Limitations
+
+* Quiz quality depends on the AI-generated response.
+* Currently generates five questions per quiz.
+* No authentication or persistent quiz history.
+* The free Render backend may take longer to respond after inactivity.
 
 ## Live Demo
+StudyMate AI:
+https://ai-study-assistant-frontend-ggjt.onrender.com
 
-https://ai-study-assistant-frontend-ggjt.onrender.com/
-
-## GitHub Repository
-
-https://github.com/Mahimaa4/AI-Study-Assistant
+**StudyMate AI:**
+[https://ai-study-assistant-frontend-ggjt.onrender.com/](https://ai-study-assistant-frontend-ggjt.onrender.com/)
