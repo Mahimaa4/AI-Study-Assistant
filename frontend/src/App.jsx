@@ -35,7 +35,7 @@ function App() {
 
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/generate", {
+      const response = await fetch("https://ai-study-assistant-backend-uv61.onrender.com/api/generate",{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
