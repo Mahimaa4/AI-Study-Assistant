@@ -57,6 +57,8 @@ The application uses a separate React frontend and Flask backend.
                      v
              Interactive Quiz
 
+---
+
 ## Live Demo
 
 https://ai-study-assistant-frontend-ggjt.onrender.com/
