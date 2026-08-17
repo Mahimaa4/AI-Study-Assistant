@@ -1,7 +1,3 @@
-Yes — remove the duplicate link. Also, **keep the project/repository name as `AI-Study-Assistant`** on GitHub if that's already your repository name. **StudyMate AI** can remain the *application/product name* inside the README and UI. There is no problem with them being different.
-
-Use this exact final README:
-
 ````markdown
 # StudyMate AI
 
